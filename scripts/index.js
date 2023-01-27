@@ -70,15 +70,18 @@ function addEventToDivs() {
 
                     document.querySelectorAll('.chapterLink').forEach((elem, i) => {
                         elem.addEventListener('click', (ev) => {
+                            
                             //console.log(elem);
+                            elem.style.color = "red";
                             const mangaName = elem.id;
                             const chapterIndex = elem.children[0].id;
-                            fetch(`/downloadScan?mangaName=${mangaName}&chapterIndex=${chapterIndex}`);
-                            
+                            const chapterTitle = elem.children[0].outerText;
+                            // fetch(`/downloadScan?mangaName=${mangaName}&chapterIndex=${chapterIndex}`);
+
                             scansDlDiv.innerHTML += (
                                 '<div id="chapter-display">' +
                                     '<div id="chapter-title">' + 
-                                        `<h2>${chapterIndex}: ${mangaName}</h2>` +
+                                        `<h2>${chapterTitle}</h2>` +
                                     '</div>' +
                                 '</div>'
                             )
